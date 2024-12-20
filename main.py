@@ -1,5 +1,7 @@
+#imports
 import random
 
+#GLOBAL VARIABLES
 suits = ('Clubs','Hearts','Spades','Diamonds')
 ranks=('Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King','Ace')
 values = {'Two':2,
@@ -16,7 +18,8 @@ values = {'Two':2,
          'King':13,
         'Ace':14}
 
-
+#CREATE CARD CLASS
+#cards have value (numerical) rank (name) and a suit 
 class Card():
     def __init__(self,suit,rank):
         self.rank = rank
@@ -25,7 +28,12 @@ class Card():
     
     def __str__(self):
         return self.rank + " of " + self.suit 
-    
+
+#CREATE DECK CLASS  
+#a deck is made up of 52 iterations of Card()
+#decks can be shuffled
+#decks can be dealt from
+#decks can be added to
 class Deck():
       
     def __init__(self):
@@ -45,6 +53,11 @@ class Deck():
     def deal_one(self):
         return self.all_cards.pop()
 
+#PLAYER CLASS
+#players have a name
+#players have a score
+#players have money
+#players are dealt cards
 class Player():
     #pop(0) is used to deal a card, append can be used to add one card, extend can be used to add multiple cards
     def __init__(self,name):
@@ -65,6 +78,9 @@ class Player():
     def __str__(self):
         return f'Player {self.name} has {len(self.all_cards)} cards'
 
+
+#MAIN FUNCTION
+#this is the main game logic
 def main():
     new_deck = Deck()
     new_deck.shuffle()
